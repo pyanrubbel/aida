@@ -18,18 +18,16 @@ const Job = {
     },
 
     // ==========================
-    // Build Job dari UI
+    // Build Job dari data
     // ==========================
-    build() {
+    build(data) {
 
         this.data = {
 
-            kegiatan: DOM.get("aida-kegiatan")?.value || "",
-            project: DOM.get("aida-project")?.value || "",
-            tanggal: DOM.get("aida-date")?.value || "",
-            lokasi: DOM.get("aida-location")?.value.trim() || "",
-            alat: DOM.get("aida-object")?.value.trim() || "",
-            jumlah: DOM.get("aida-qty")?.value || 1,
+            ...this.data,
+
+            ...data,
+
             uraian: ""
 
         };
