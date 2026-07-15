@@ -61,7 +61,7 @@ const Activity = {
         const projects = this.readProjects();
 
         const panel =
-            DOM.get("aida-project");
+            DOM.get(Config.selectors.panel.project);
 
         if (!panel) return;
 
@@ -90,17 +90,17 @@ const Activity = {
         // Bangun Job dari Panel
         Job.build({
 
-            kegiatan: DOM.get("aida-kegiatan")?.value || "",
+            kegiatan: DOM.get(Config.selectors.panel.kegiatan)?.value || "",
 
-            project: DOM.get("aida-project")?.value || "",
+            project: DOM.get(Config.selectors.panel.project)?.value || "",
 
-            tanggal: DOM.get("aida-date")?.value || "",
+            tanggal: DOM.get(Config.selectors.panel.tanggal)?.value || "",
 
-            lokasi: DOM.get("aida-location")?.value.trim() || "",
+            lokasi: DOM.get(Config.selectors.panel.lokasi)?.value.trim() || "",
 
-            alat: DOM.get("aida-object")?.value.trim() || "",
+            alat: DOM.get(Config.selectors.panel.alat)?.value.trim() || "",
 
-            jumlah: DOM.get("aida-qty")?.value || 1
+            jumlah: DOM.get(Config.selectors.panel.jumlah)?.value || 1
 
         });
 
@@ -108,6 +108,13 @@ const Activity = {
         Job.generateDescription();
 
         const job = Job.get();
+        if (!Validator.validate(job)) {
+
+            DOM.get(Config.selectors.panel.status).innerText = "Validasi Gagal";
+
+            return;
+
+        }
 
         console.table(job);
 
@@ -128,7 +135,7 @@ const Activity = {
 
         });
 
-        DOM.get("aida-status").innerText =
+        DOM.get(Config.selectors.panel.status).innerText =
             "Selesai";
 
         console.log("[AIDA] RUN SUCCESS");

@@ -17,28 +17,35 @@ const Config = {
     // =====================================
     selectors: {
 
-        panel: {
+    panel: {
 
-            kegiatan: "aida-kegiatan",
+        panel: "aida-panel",
 
-            project: "aida-project",
+        kegiatan: "aida-kegiatan",
 
-            tanggal: "aida-date",
+        project: "aida-project",
 
-            lokasi: "aida-location",
+        tanggal: "aida-date",
 
-            alat: "aida-object",
+        lokasi: "aida-location",
 
-            jumlah: "aida-qty"
+        alat: "aida-object",
 
-        },
+        jumlah: "aida-qty",
 
-        // Nanti diisi selector website OLS
-        ols: {
+        open: "aida-open",
 
-        }
+        run: "aida-run",
+
+        status: "aida-status"
 
     },
+
+    ols: {
+
+    }
+
+},
 
     // =====================================
     // Mapping Activity OLS
