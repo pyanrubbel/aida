@@ -1,0 +1,28 @@
+#aida-panel{
+    position:fixed;
+    top:80px;
+    right:20px;
+    width:220px;
+
+    background:#ffffff;
+    border:1px solid #ccc;
+    border-radius:8px;
+
+    padding:12px;
+
+    z-index:999999;
+
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+
+    font-family:Arial,sans-serif;
+}
+
+#aida-panel h3{
+    margin:0 0 10px;
+}
+
+#aida-panel button{
+    width:100%;
+    padding:8px;
+    cursor:pointer;
+}
