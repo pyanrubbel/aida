@@ -44,7 +44,7 @@ const Job = {
     generateDescription() {
 
         this.data.uraian =
-            Config.description
+            Config.template.description
                 .replace("{kegiatan}", this.data.kegiatan)
                 .replace("{alat}", this.data.alat)
                 .replace("{jumlah}", this.data.jumlah)
