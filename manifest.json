@@ -28,6 +28,8 @@
         "dom.js",
         "form.js",
         "storage.js",
+        "validator.js",
+        "status.js",
         "activity.js",
         "panel.js"
       ],

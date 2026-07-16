@@ -86,8 +86,9 @@ const Activity = {
     // Jalankan Automation
     // =====================================
     run() {
-
+        try {
         // Bangun Job dari Panel
+        Status.set("Membangun Job...");
         Job.build({
 
             kegiatan: DOM.get(Config.selectors.panel.kegiatan)?.value || "",
@@ -105,19 +106,21 @@ const Activity = {
         });
 
         // Buat Uraian
+        Status.set("Menyusun Uraian...");
         Job.generateDescription();
 
         const job = Job.get();
+        Status.set("Validasi...");
         if (!Validator.validate(job)) {
 
-            DOM.get(Config.selectors.panel.status).innerText = "Validasi Gagal";
+            Status.error("Validasi Gagal");
 
             return;
 
         }
 
         console.table(job);
-
+            Status.set("Mengisi Form...");
         // Isi Form OLS
         Form.fill({
 
@@ -135,11 +138,19 @@ const Activity = {
 
         });
 
-        DOM.get(Config.selectors.panel.status).innerText =
-            "Selesai";
+        Status.success("Selesai");
 
         console.log("[AIDA] RUN SUCCESS");
+}
+    catch (error) {
+
+        console.error("[AIDA]", error);
+
+        Status.error("Terjadi kesalahan");
 
     }
+
+}
+    
 
 };
